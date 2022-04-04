@@ -1,4 +1,4 @@
-import { Schema, model, connect, Types } from "mongoose";
+import { model } from "mongoose";
 import { StatusSchema } from "../model/status";
 import { userSchema } from "../model/user";
 import * as listener from "../listener";
@@ -25,6 +25,6 @@ export const addStatus = async (doc) => {
 export const findUserById = async (id) => {
   return await User.findById(id).populate("status");
 };
-export const getAllUser = async (id:string)=>{
-  return await User.find({ _id: {$ne: id}}).populate("status");
+export const getAllUser = async (id: string) => {
+  return await User.find({ _id: { $ne: id } }).populate("status");
 };

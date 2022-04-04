@@ -1,7 +1,5 @@
-import { Schema, model, connect, Types } from "mongoose";
+import { model } from "mongoose";
 import { StatusSchema } from "../model/status";
-import { userSchema } from "../model/user";
-import * as userRepo from "../repo/userRepo";
 import * as statusRepo from "../repo/statusRepo";
 const Status = model("Status", StatusSchema);
 

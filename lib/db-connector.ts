@@ -1,6 +1,4 @@
-import { Schema, model, connect, Types } from "mongoose";
-import { StatusSchema } from "./model/status";
-import { userSchema } from "./model/user";
+import { connect } from "mongoose";
 let db = null;
 export const init = async () => {
   if (!db) {

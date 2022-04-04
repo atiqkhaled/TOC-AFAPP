@@ -6,7 +6,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     await db.init();
     response = {
         documentResponse: await statusDao.addStatus(req),
-      };
+    };
     context.res = {
         body: response
     };
