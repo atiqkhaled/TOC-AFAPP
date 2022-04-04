@@ -1,6 +1,6 @@
 import * as publisher from "./publisher"
-
+import * as userRepo from "./repo/userRepo";
 export const statusChangeListner = async (user:any)=>{
-    const res = await publisher.publishChangedStatus(user);
-    return res;
+    publisher.publishChangedStatus(user);
+    return user;
 }

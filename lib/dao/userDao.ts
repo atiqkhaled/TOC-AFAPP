@@ -4,7 +4,6 @@ import * as userRepo from "../repo/userRepo";
 import * as statusRepo from "../repo/statusRepo";
 const User = model("User", userSchema);
 
-
 export const addUser = async (doc: any) => {
   const status = await statusRepo.findStatusByName("Active")
   const user = new User(
@@ -19,10 +18,15 @@ export const addUser = async (doc: any) => {
 export const findUserById = async (id) => {
   return await userRepo.findUserById(id);
 };
+export const findUserByName = async (username:string) => {
+  return await userRepo.findUserByName(username);
+};
 export const getAllUser = async (id: string) => {
   return userRepo.getAllUser(id);
 };
 export const updateUserStatus = async (doc: any) => {
+  console.log("==================")
+  console.log(doc);
   const userModel = new User(
     {
       _id: doc.body._id,
@@ -30,5 +34,11 @@ export const updateUserStatus = async (doc: any) => {
       status: doc.body.status._id
     }
   );
-  return await userRepo.updateUserStatus(userModel);
+  try {
+    return await userRepo.updateUserStatus(userModel);
+  } catch (error) {
+    return error;
+  }
+  
+  
 };
