@@ -3,7 +3,7 @@ import * as db from "../lib/db-connector";
 import * as userDao from "../lib/dao/userDao";
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     await db.init();
-  context.res = {
+    context.res = {
     body: {data : await userDao.updateUserStatus(req)},
   };
 

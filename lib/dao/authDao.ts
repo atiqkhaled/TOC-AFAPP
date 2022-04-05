@@ -13,3 +13,7 @@ export const authenticate = async (doc: any) => {
   console.log(user);
   return authHandler.postLogin(user);
 };
+
+export const signout =async (doc:any) => {
+  
+}

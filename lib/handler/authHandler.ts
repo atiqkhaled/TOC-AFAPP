@@ -17,10 +17,14 @@ export const authenticateUser = async (username: any) => {
 };
 export const postLogin =async (user: any) => {
     const status = await statusRepo.findStatusByName("Active");
-    console.log({postlogin:user})
     user.status = status._id;
-    console.log({postLogin:user})
     const activeUser =await userRepo.updateUserStatus(user);
-
   return activeUser;
+};
+
+export const logout =async (user: any) => {
+  const status = await statusRepo.findStatusByName("Offline");
+  user.status = status._id;
+  const deactiveUser =await userRepo.updateUserStatus(user);
+  return deactiveUser;
 };
