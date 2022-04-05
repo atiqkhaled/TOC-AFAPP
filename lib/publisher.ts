@@ -1,6 +1,6 @@
 const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-const hub = "pubsub";
+const hub = "Hub";
 let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
 
 export const publishChangedStatus = (user: any) => {
