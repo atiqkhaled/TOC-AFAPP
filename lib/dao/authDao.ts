@@ -1,10 +1,8 @@
 import { model } from "mongoose";
 import { StatusSchema } from "../model/status";
 import { userSchema } from "../model/user";
-import * as userRepo from "../repo/userRepo";
-import * as statusRepo from "../repo/statusRepo";
-import * as userDao from "../dao/userDao";
 import * as authHandler from "../handler/authHandler";
+import * as userDao from "../dao/userDao";
 const User = model("User", userSchema);
 const Status = model("Status", StatusSchema);
 
@@ -15,5 +13,6 @@ export const authenticate = async (doc: any) => {
 };
 
 export const signout =async (doc:any) => {
-  
+  const user = await userDao.findUserByName(doc.body.name);
+  return await authHandler.logout(user);
 }

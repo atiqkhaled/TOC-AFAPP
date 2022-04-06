@@ -31,7 +31,7 @@ export const updateUserStatus = async (doc: any) => {
     {
       _id: doc.body._id,
       name: doc.body.name,
-      status: doc.body.status._id
+      status: doc.body.status?._id
     }
   );
   try {

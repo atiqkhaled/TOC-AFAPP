@@ -10,8 +10,6 @@ export const addUser = (modelToInsert: any) => {
 };
 
 export const updateUserStatus = async (modelToUpdate: any) => {
-  console.log({status:"-----user repo-------",modelToUpdate:modelToUpdate})
-  // console.log(modelToUpdate);
   await User.updateOne({ _id: modelToUpdate._id }, { $set: modelToUpdate });
   const modelToPublish = await User.findById(modelToUpdate._id).populate("status");
   console.log({status:"-----publish-------",modelToPublish:modelToPublish})
