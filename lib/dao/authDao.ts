@@ -13,6 +13,6 @@ export const authenticate = async (doc: any) => {
 };
 
 export const signout =async (doc:any) => {
-  const user = await userDao.findUserByName(doc.body.name);
-  return await authHandler.logout(user);
+  // const user = await userDao.findUserByName(doc.body.name);
+  return await authHandler.logout(doc);
 }

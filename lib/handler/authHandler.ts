@@ -22,9 +22,15 @@ export const postLogin =async (user: any) => {
   return activeUser;
 };
 
-export const logout =async (user: any) => {
+export const logout =async (doc: any) => {
   const status = await statusRepo.findStatusByName("Offline");
-  user.status = status._id;
-  const deactiveUser =await userRepo.updateUserStatus(user);
+  const userModel = new User(
+    {
+      _id: doc.body._id,
+      name: doc.body.name,
+      status: status?._id
+    }
+  );
+  const deactiveUser =await userRepo.updateUserStatus(userModel);
   return deactiveUser;
 };
