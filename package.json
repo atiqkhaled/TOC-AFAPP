@@ -7,7 +7,7 @@
     "watch": "tsc -w",
     "prestart": "npm run build",
     "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "test": "jest --verbose"
   },
   "dependencies": {
     "@azure/web-pubsub": "^1.0.0",
@@ -16,6 +16,9 @@
   },
   "devDependencies": {
     "@azure/functions": "^2.0.0",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
     "typescript": "^4.0.0"
   }
 }
