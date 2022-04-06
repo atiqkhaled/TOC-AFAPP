@@ -25,8 +25,6 @@ export const getAllUser = async (id: string) => {
   return userRepo.getAllUser(id);
 };
 export const updateUserStatus = async (doc: any) => {
-  console.log("==================")
-  console.log(doc);
   const userModel = new User(
     {
       _id: doc.body._id,

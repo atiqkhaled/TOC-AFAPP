@@ -12,7 +12,6 @@ export const addUser = (modelToInsert: any) => {
 export const updateUserStatus = async (modelToUpdate: any) => {
   await User.updateOne({ _id: modelToUpdate._id }, { $set: modelToUpdate });
   const modelToPublish = await User.findById(modelToUpdate._id).populate("status");
-  console.log({status:"-----publish-------",modelToPublish:modelToPublish})
   return listener.statusChangeListner(modelToPublish);
 };
 
