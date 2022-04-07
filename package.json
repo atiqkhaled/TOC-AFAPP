@@ -7,7 +7,7 @@
     "watch": "tsc -w",
     "prestart": "npm run build",
     "start": "func start",
-    "test": "--passWithNoTests"
+    "test": "echo \"No tests yet...\""
   },
   "dependencies": {
     "@azure/web-pubsub": "^1.0.0",
